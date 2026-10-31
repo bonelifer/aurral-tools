@@ -1,0 +1,11 @@
+# Settings for cancel-stuck-downloads.py and approve-reviews.py. Copy to
+# aurral-tools.cfg next to the scripts and run:
+# chmod 600 aurral-tools.cfg
+
+[aurral]
+# aurral address, as reached from where the script runs.
+url = http://localhost:3002
+
+# API key from aurral Settings > General > API access. Gives admin access,
+# so keep this file readable only by you. Update it after rotating the key.
+api_key =

@@ -1,0 +1,4 @@
+# Live configs hold secrets; only the .example templates are tracked
+aurral-tools.cfg
+get-deezer-arl.cfg
+__pycache__/

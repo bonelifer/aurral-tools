@@ -1,0 +1,54 @@
+name: Bug report
+description: One of the tools doesn't work as described
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please remove API keys, ARLs, passwords and private addresses from anything you paste.
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool
+      options:
+        - get-deezer-arl.py
+        - cancel-stuck-downloads.py
+        - approve-reviews.py
+        - start-queue-helpers.sh
+        - rescan-library.py
+        - unmonitor.py
+        - strip-musicbrainz-tags.py
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you ran, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and output
+      description: The exact command and its full output.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: aurral-version
+    attributes:
+      label: aurral version
+      placeholder: "2.12.0"
+  - type: input
+    id: deemix-version
+    attributes:
+      label: deemix version
+      placeholder: "webui 4.8.0"
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: "3.12"
+    validations:
+      required: true
