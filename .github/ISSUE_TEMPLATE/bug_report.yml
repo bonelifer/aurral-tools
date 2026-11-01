@@ -18,6 +18,7 @@ body:
         - rescan-library.py
         - unmonitor.py
         - strip-musicbrainz-tags.py
+        - tag-replaygain.py
     validations:
       required: true
   - type: textarea

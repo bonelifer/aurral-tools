@@ -197,6 +197,41 @@ writes these tags again on new downloads and on **Clean up Library**. Without
 them, aurral may link an artist to a different MusicBrainz artist with the
 same name; fix that with the artist's **Edit MusicBrainz ID**.
 
+## Adding ReplayGain tags: `tag-replaygain.py`
+
+Players such as MPD can even out volume between songs, but only for files
+with ReplayGain tags. This runs [rsgain](https://github.com/complexlogic/rsgain)
+on each folder and writes track and album gain at ReplayGain 2.0 loudness
+(-18 LUFS). Album gain is worked out per folder, so keep each album in its
+own folder.
+
+By default it:
+
+- skips files that already have ReplayGain tags, so later runs only scan new
+  downloads
+- keeps each file's modified time, so players that sort by date added and
+  library scans that look for changed files are not disturbed
+- keeps each MP3's ID3 version
+
+```bash
+./tag-replaygain.py /path/to/music                 # track + album gain
+./tag-replaygain.py -t /path/to/music              # track gain only
+./tag-replaygain.py -a /path/to/music              # re-tag every file
+./tag-replaygain.py -m 8 /path/one /path/two       # 8 files at a time
+```
+
+| Option | Meaning |
+| --- | --- |
+| `-m N`, `--threads N` | Files to scan at the same time (default 4). |
+| `-t`, `--track-only` | Write track gain only, no album gain. |
+| `-a`, `--all-files` | Also re-tag files that already have ReplayGain tags. |
+| `-T`, `--update-times` | Let tagging update each file's modified time. |
+| `-r PATH`, `--rsgain PATH` | rsgain program to run (default: `rsgain` on `PATH`). |
+
+Only ReplayGain tags are written. MPD needs a database update afterwards to
+read the new tags, and its ReplayGain setting (`replaygain` in `mpd.conf`)
+chooses between the track and album values.
+
 ## Tips for aurral with deemix
 
 - **Download sources** (Settings > Downloads): keep deemix at a lower

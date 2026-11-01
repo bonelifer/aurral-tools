@@ -12,6 +12,7 @@ Command-line helpers for [aurral](https://github.com/lklynet/aurral) with
 | `rescan-library.py` | Starts a quick or full library scan. |
 | `unmonitor.py` | Finds artists by name and stops monitoring the artist and/or its albums. |
 | `strip-musicbrainz-tags.py` | Removes MusicBrainz tags from music files, saving the removed values first. |
+| `tag-replaygain.py` | Adds ReplayGain track and album tags with rsgain, keeping file times and ID3 versions. |
 
 ## Requirements
 
@@ -22,6 +23,8 @@ Command-line helpers for [aurral](https://github.com/lklynet/aurral) with
   Python packages (Playwright, mutagen) into a private environment under
   `~/.cache/` on first run. `get-deezer-arl.py` also uses an installed
   Google Chrome (or downloads Chromium) and, from cron, `xvfb-run`.
+- [rsgain](https://github.com/complexlogic/rsgain/releases), for
+  `tag-replaygain.py`
 
 ## Quick start
 

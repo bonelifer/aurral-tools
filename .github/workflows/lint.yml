@@ -29,7 +29,7 @@ jobs:
         # No arguments prints help and exits 2
         run: |
           set +e
-          for tool in get-deezer-arl.py cancel-stuck-downloads.py approve-reviews.py rescan-library.py unmonitor.py strip-musicbrainz-tags.py; do
+          for tool in get-deezer-arl.py cancel-stuck-downloads.py approve-reviews.py rescan-library.py unmonitor.py strip-musicbrainz-tags.py tag-replaygain.py; do
             python "$tool" 2> help.txt
             status=$?
             if [ "$status" -ne 2 ] || ! grep -q "usage:" help.txt; then
