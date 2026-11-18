@@ -13,6 +13,7 @@ Command-line helpers for [aurral](https://github.com/lklynet/aurral) with
 | `unmonitor.py` | Finds artists by name and stops monitoring the artist and/or its albums. |
 | `strip-musicbrainz-tags.py` | Removes MusicBrainz tags from music files, saving the removed values first. |
 | `tag-replaygain.py` | Adds ReplayGain track and album tags with rsgain, keeping file times and ID3 versions. |
+| `install-mympd-tile.py` | Adds a [myMPD](https://github.com/jcorporation/myMPD) Home tile that opens aurral, with aurral's own icon. |
 
 ## Requirements
 
