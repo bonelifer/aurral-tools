@@ -232,6 +232,30 @@ Only ReplayGain tags are written. MPD needs a database update afterwards to
 read the new tags, and its ReplayGain setting (`replaygain` in `mpd.conf`)
 chooses between the track and album values.
 
+## A myMPD Home tile for aurral: `install-mympd-tile.py`
+
+Adds a tile to [myMPD](https://github.com/jcorporation/myMPD)'s Home screen
+that opens aurral in a new browser tab. The tile shows aurral's own app icon,
+downloaded from aurral itself and saved in myMPD's tile-image folder as
+`aurral.png`. Running it again updates the tile and its image instead of
+adding a second tile.
+
+```bash
+./install-mympd-tile.py --mympd http://127.0.0.1:8081 \
+    --url http://127.0.0.1:3002 \
+    --thumbs-dir /path/to/mympd/workdir/pics/thumbs
+```
+
+| Option | Meaning |
+| --- | --- |
+| `-m URL`, `--mympd URL` | myMPD's address. |
+| `-U URL`, `--url URL` | aurral's address, as the browser that shows myMPD reaches it. |
+| `-t DIR`, `--thumbs-dir DIR` | myMPD's `pics/thumbs` folder on this machine. For myMPD in Docker, use the host side of its workdir mount. |
+| `-i URL_OR_FILE`, `--icon URL_OR_FILE` | A PNG to use instead of aurral's icon. |
+| `-p NAME`, `--partition NAME` | myMPD partition whose Home screen gets the tile (default `default`). |
+
+Set `MYMPD_SESSION` when myMPD asks for a PIN.
+
 ## Tips for aurral with deemix
 
 - **Download sources** (Settings > Downloads): keep deemix at a lower
